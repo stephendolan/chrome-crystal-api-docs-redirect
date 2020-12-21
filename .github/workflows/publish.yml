@@ -1,8 +1,9 @@
-name: Release
+name: Publish
 
 on:
-  push:
-    branches: [ main ]
+  release:
+    types:
+      - created
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -13,12 +14,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-        
+
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
-          filename: 'extension.zip'
-          exclusions: '*.git*'
+          filename: "extension.zip"
+          exclusions: "*.git*"
 
       - name: Extension upload
         uses: Passiverecords/chrome-extension-upload-action@1.4.1
@@ -26,6 +27,6 @@ jobs:
           refresh-token: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
           client-id: ${{ secrets.GOOGLE_CLIENT_ID }}
           client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          file-name: './extension.zip'
+          file-name: "./extension.zip"
           app-id: ${{ secrets.GOOGLE_APPLICATION_ID }}
           publish: true
