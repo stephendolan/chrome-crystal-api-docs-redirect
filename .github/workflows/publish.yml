@@ -29,4 +29,3 @@ jobs:
           client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           extension: ${{ secrets.GOOGLE_APPLICATION_ID }}
           zip: "extension.zip"
-          publish: true
