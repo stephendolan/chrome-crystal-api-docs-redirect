@@ -2,6 +2,7 @@ chrome.webRequest.onBeforeRequest.addListener(
   function (details) {
     const apiPathRegex = /^(https?:\/\/crystal-lang.org\/api)\/([^\/]+)\/(.*)/;
 
+    // Hard-coding for now since looking up the latest GitHub release over the API was a bit slow.
     const latestVersion = "0.35.1";
 
     const requestedVersion = details.url.replace(apiPathRegex, "$2");
