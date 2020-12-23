@@ -20,13 +20,13 @@ jobs:
         with:
           filename: "extension.zip"
           exclusions: "*.git*"
-
+          
       - name: Extension upload
-        uses: Passiverecords/chrome-extension-upload-action@1.4.1
+        uses: trmcnvn/chrome-addon@v2
         with:
           refresh-token: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
           client-id: ${{ secrets.GOOGLE_CLIENT_ID }}
           client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          file-name: "./extension.zip"
-          app-id: ${{ secrets.GOOGLE_APPLICATION_ID }}
+          extension: ${{ secrets.GOOGLE_APPLICATION_ID }}
+          zip: "extension.zip"
           publish: true
