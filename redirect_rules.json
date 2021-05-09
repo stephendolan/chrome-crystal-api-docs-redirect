@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "\\1/latest/\\3"
+      }
+    },
+    "condition": {
+      "resourceTypes": ["main_frame"],
+      "regexFilter": "^(https?:\\/\\/crystal-lang\\.org\\/api)(\\/0[\\d\\.]*\\/)(.*)",
+      "isUrlFilterCaseSensitive": false
+    }
+  }
+]

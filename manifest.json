@@ -1,20 +1,25 @@
 {
   "name": "Crystal Language API Redirect",
-  "description": "Redirect all Crystal API references to the latest version",
-  "version": "1.0.1",
+  "description": "Redirect all pre-1.0 Crystal API references to the latest version",
+  "version": "2.0.0",
   "manifest_version": 2,
   "icons": {
     "16": "images/icon16.png",
     "48": "images/icon48.png",
     "128": "images/icon128.png"
   },
-  "background": {
-    "scripts": ["src/background.js"]
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_one",
+        "enabled": true,
+        "path": "redirect_rules.json"
+      }
+    ]
   },
   "permissions": [
-    "webRequest",
+    "declarativeNetRequest",
     "*://crystal-lang.org/api",
-    "*://www.crystal-lang.org/api",
-    "webRequestBlocking"
+    "*://www.crystal-lang.org/api"
   ]
 }
